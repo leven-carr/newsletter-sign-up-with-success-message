@@ -1,0 +1,253 @@
+/* Custom variables */
+:root {
+  --body-bg-color: hsl(235, 18%, 26%);
+  --card-bg-color: hsl(0, 0%, 100%);
+  --primary-txt-color: hsl(234, 29%, 20%);
+  --placeholder-txt-color: hsl(0, 0%, 58%);
+  --accent-color: hsl(4, 100%, 67%);
+  --accent-color-transparent: hsla(4, 100%, 67%, 0.2);
+}
+
+/* Universal reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  color: var(--primary-txt-color);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Flexboxes */
+.flex-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container.main {
+  min-height: 100vh;
+  justify-content: flex-start;
+}
+
+.flex-container.card {
+  width: clamp(20rem, 100%, 26rem);
+  background-color: var(--card-bg-color);
+  border-radius: 0 0 1rem 1rem;
+}
+
+.flex-container.content {
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.flex-container.list {
+  list-style: none;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.flex-container.form {
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.flex-container.form-row {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Other styles */
+.content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.content li::before {
+  content: url("../images/icon-list.svg");
+  margin-right: 1rem;
+}
+
+.content li {
+  display: flex;
+  align-items: flex-start;
+}
+
+.form label,
+.form .error-message {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  margin-bottom: -1rem;
+}
+
+.form .error-message {
+  display: none;
+  color: var(--accent-color);
+}
+
+.form input {
+  width: 100%;
+  color: var(--primary-txt-color);
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1rem;
+  border: 1px solid var(--placeholder-txt-color);
+  border-radius: 0.5rem;
+}
+
+.form input::placeholder {
+  color: var(--placeholder-txt-color);
+}
+
+.form .submit-btn,
+.dismiss-btn {
+  width: 100%;
+  background-color: var(--primary-txt-color);
+  color: var(--card-bg-color);
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+/* Success modal */
+dialog[open] {
+  width: clamp(20rem, 100%, 26rem);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin: 0 auto;
+  padding: 8rem 1.5rem 2.5rem;
+  border: none;
+  border-radius: 0;
+  color: var(--primary-txt-color);
+}
+
+dialog img {
+  width: 4rem;
+}
+
+dialog h2 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
+dialog p {
+  line-height: 1.4;
+}
+
+dialog .given-email {
+  font-weight: 700;
+}
+
+dialog .dismiss-btn {
+  margin-top: auto;
+}
+
+dialog::backdrop {
+  background-color: var(--body-bg-color);
+}
+
+/* Hover and active states */
+.form input:hover {
+  border: 2px dashed var(--primary-txt-color);
+}
+
+.form input:active {
+  border: 2px solid var(--primary-txt-color);
+}
+
+.form .submit-btn:hover,
+dialog .dismiss-btn:hover {
+  background-image: linear-gradient(to right, #ff5478, #ff6841);
+  font-weight: 700;
+}
+
+.form .submit-btn:active,
+dialog .dismiss-btn:active {
+  border: 2px solid var(--card-bg-color);
+}
+
+/* Error state */
+.form input.error {
+  background-color: var(--accent-color-transparent);
+  border: 1px solid var(--accent-color);
+}
+
+.form input.error::placeholder {
+  color: var(--accent-color);
+}
+
+.form .error-message.error {
+  display: initial;
+}
+
+/* Footer styles */
+.attribution {
+  color: white;
+  font-size: 0.6875rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.attribution a {
+  color: var(--accent-color);
+}
+
+/* MEDIA QUERY */
+@media screen and (min-width: 1024px) {
+  .flex-container.main {
+    justify-content: center;
+  }
+
+  article.flex-container.card {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: clamp(28rem, 100%, 52rem);
+    border-radius: 2rem;
+  }
+
+  .flex-container.content {
+    width: 55%;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .flex-container.list {
+    gap: 0.5rem;
+  }
+
+  .img-container {
+    padding: 1.5rem;
+  }
+
+  .content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+  }
+
+  /* Success Modal */
+  dialog[open] {
+    width: clamp(26rem, 100% / 3, 40rem);
+    height: auto;
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
