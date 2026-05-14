@@ -215,16 +215,18 @@ dialog .dismiss-btn:active {
   }
 
   article.flex-container.card {
+    width: clamp(28rem, 100%, 48rem);
     flex-direction: row-reverse;
     justify-content: space-between;
-    width: clamp(28rem, 100%, 52rem);
+    gap: 2rem;
+    padding: 1.5rem;
     border-radius: 2rem;
   }
 
   .flex-container.content {
-    width: 55%;
+    width: 60%;
     gap: 2rem;
-    padding: 2rem;
+    padding: 0;
   }
 
   .flex-container.list {
@@ -232,7 +234,7 @@ dialog .dismiss-btn:active {
   }
 
   .img-container {
-    padding: 1.5rem;
+    padding: 0rem;
   }
 
   .content h1 {
