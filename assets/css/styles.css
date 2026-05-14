@@ -215,16 +215,16 @@ dialog .dismiss-btn:active {
   }
 
   article.flex-container.card {
-    width: clamp(28rem, 100%, 50rem);
+    width: clamp(28rem, 100%, 52rem);
     flex-direction: row-reverse;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 1.5rem;
     border-radius: 2rem;
   }
 
   .flex-container.content {
-    width: 60%;
+    width: 50%;
     gap: 2rem;
     padding: 0;
   }
